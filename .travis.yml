@@ -1,0 +1,8 @@
+os:
+  - windows
+before_script:
+  - set | sort
+script:
+  - wslconfig
+  - wsl --help
+  - wslconfig /l
