@@ -1,5 +1,7 @@
 os:
   - windows
+language: generic
+
 before_script:
   - set | sort
 script:
