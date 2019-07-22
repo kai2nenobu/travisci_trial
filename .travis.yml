@@ -4,9 +4,10 @@ language: shell
 
 install:
   - choco install -y lxrunoffline
+  - export PATH=$ChocolateyToolsLocation/lxrunoffline:$PATH
 before_script:
   - env | sort
-  - export PATH=$ChocolateyToolsLocation/lxrunoffline:$PATH
+  - git config -l --global
   - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
