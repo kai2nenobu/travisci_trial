@@ -2,11 +2,14 @@ os:
   - windows
 language: shell
 
+install:
+  - choco install -y lxrunoffline
 before_script:
   - env | sort
+  - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
   - wslconfig /l || true
-  - curl -o install.ps1 https://raw.githubusercontent.com/kai2nenobu/wsl-distro-installer/master/install.ps1
+  - curl -L -o install.ps1 https://raw.githubusercontent.com/kai2nenobu/wsl-distro-installer/master/install.ps1
   - powershell -ExecutionPolicy RemoteSigned -File install.ps1 Ubuntu-18.04
   - wslconfig /l || true
