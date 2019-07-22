@@ -11,6 +11,9 @@ before_script:
   - powershell -Command 'Get-ExecutionPolicy'
 script:
   - wslconfig /l || true
-  - curl -L -o install.ps1 https://raw.githubusercontent.com/kai2nenobu/wsl-distro-installer/master/install.ps1
-  - powershell -ExecutionPolicy RemoteSigned -File install.ps1 Ubuntu-18.04
+  - |
+    ## Install WSL distribution
+    name=ubuntu1804
+    curl -L -o "$name.tar.gz" "https://lxrunoffline.apphb.com/download/Ubuntu/bionic"
+    LxRunOffline install -n $name -d "${LOCALAPPDATA}\WSL\$name" -f "$name.tar.gz"
   - wslconfig /l || true
