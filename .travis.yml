@@ -3,8 +3,10 @@ os:
 language: shell
 
 before_script:
-  - set | sort
+  - env | sort
+  - powershell -Command 'Get-ExecutionPolicy'
 script:
-  - wslconfig
-  - wsl --help
-  - wslconfig /l
+  - wslconfig /l || true
+  - curl -o install.ps1 https://raw.githubusercontent.com/kai2nenobu/wsl-distro-installer/master/install.ps1
+  - powershell -ExecutionPolicy RemoteSigned -File install.ps1 Ubuntu-18.04
+  - wslconfig /l || true
