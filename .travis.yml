@@ -10,10 +10,10 @@ before_script:
   - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
-  - wslconfig /l || true
+  - cmd.exe /C 'wslconfig /l'
   - |
     ## Install WSL distribution
     name=ubuntu1804
     curl -L -o "$name.tar.gz" "https://lxrunoffline.apphb.com/download/Ubuntu/bionic"
     LxRunOffline install -n $name -d "${LOCALAPPDATA}\WSL\$name" -f "$name.tar.gz"
-  - wslconfig /l || true
+  - cmd.exe /C 'wslconfig /l'
