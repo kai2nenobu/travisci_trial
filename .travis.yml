@@ -10,7 +10,6 @@ before_script:
   - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
-  - cmd.exe /C 'wslconfig /l'
   - |
     ## Install WSL distribution
     name=ubuntu1804
