@@ -6,6 +6,7 @@ install:
   - choco install -y lxrunoffline
 before_script:
   - env | sort
+  - export PATH=$ChocolateyToolsLocation/lxrunoffline:$PATH
   - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
