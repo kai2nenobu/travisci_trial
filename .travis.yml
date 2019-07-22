@@ -7,7 +7,7 @@ install:
   - export PATH=$ChocolateyToolsLocation/lxrunoffline:$PATH
 before_script:
   - env | sort
-  - git config -l --global
+  - git config -l
   - lxrunoffline version
   - powershell -Command 'Get-ExecutionPolicy'
 script:
