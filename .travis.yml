@@ -1,6 +1,6 @@
 os:
   - windows
-language: minimal
+language: shell
 
 before_script:
   - set | sort
